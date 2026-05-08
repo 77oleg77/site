@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YS Studio</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family: Arial, sans-serif;
+      min-height:100vh;
+      overflow:hidden;
+      color:white;
+
+      background:
+        radial-gradient(circle at top left,#252525,#090909 65%);
+      
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .background{
+      position:absolute;
+      inset:0;
+      overflow:hidden;
+      z-index:0;
+    }
+
+    .blur{
+      position:absolute;
+      border-radius:50%;
+      filter:blur(120px);
+      opacity:0.45;
+      animation:float 14s ease-in-out infinite;
+    }
+
+    .b1{
+      width:420px;
+      height:420px;
+      background:#c9a45c;
+      top:-120px;
+      left:-120px;
+    }
+
+    .b2{
+      width:340px;
+      height:340px;
+      background:#7a5cff;
+      bottom:-140px;
+      right:-100px;
+      animation-delay:4s;
+    }
+
+    .b3{
+      width:260px;
+      height:260px;
+      background:#ffffff;
+      opacity:0.08;
+      top:45%;
+      left:55%;
+      animation-delay:2s;
+    }
+
+    @keyframes float{
+      0%,100%{ transform:translate(0,0); }
+      50%{ transform:translate(30px,-25px); }
+    }
+
+    .container{
+      position:relative;
+      z-index:2;
+      width:92%;
+      max-width:1100px;
+      padding:70px;
+      border-radius:34px;
+      background:rgba(255,255,255,0.06);
+      backdrop-filter:blur(22px);
+      border:1px solid rgba(255,255,255,0.12);
+      box-shadow:0 15px 50px rgba(0,0,0,0.45);
+    }
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:70px;
+    }
+
+    .logo{
+      font-size:20px;
+      font-weight:700;
+      letter-spacing:8px;
+      text-transform:uppercase;
+      background:linear-gradient(90deg,#fff,#c9a45c);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .hero{
+      text-align:center;
+    }
+
+    .hero h1{
+      font-size:clamp(50px,8vw,100px);
+      margin-bottom:28px;
+      font-weight:900;
+    }
+
+    .hero p{
+      max-width:700px;
+      margin:0 auto;
+      font-size:18px;
+      line-height:1.8;
+      opacity:0.75;
+    }
+
+    .buttons{
+      margin-top:45px;
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      text-decoration:none;
+      padding:18px 34px;
+      border-radius:18px;
+      font-weight:700;
+      transition:0.3s ease;
+      display:inline-block;
+    }
+
+    .primary{
+      background:linear-gradient(135deg,#ffffff,#d7ba7d);
+      color:black;
+    }
+
+    .secondary{
+      color:white;
+      border:1px solid rgba(255,255,255,0.15);
+      background:rgba(255,255,255,0.05);
+    }
+
+    .btn:hover{
+      transform:translateY(-5px);
+    }
+
+    footer{
+      position:absolute;
+      bottom:22px;
+      width:100%;
+      text-align:center;
+      font-size:13px;
+      opacity:0.45;
+      z-index:2;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="background">
+    <div class="blur b1"></div>
+    <div class="blur b2"></div>
+    <div class="blur b3"></div>
+  </div>
+
+  <main class="container">
+
+    <nav>
+      <div class="logo">your lifestyle</div>
+    </nav>
+
+    <section class="hero">
+      <h1>Creative Digital Space</h1>
+
+      <p>
+        Современная минималистичная платформа с обучением,
+        услугами и всеми социальными сетями в одном месте.
+      </p>
+
+      <div class="buttons">
+        <a href="https://sites.google.com/view/3r3r2/school"
+           target="_self"
+           class="btn primary">
+          Обучение
+        </a>
+
+        <a href="https://sites.google.com/view/YOUR-SITE-NAME/services"
+           target="_self"
+           class="btn secondary">
+          Услуги
+        </a>
+
+        <a href="https://sites.google.com/view/YOUR-SITE-NAME/socials"
+           target="_self"
+           class="btn secondary">
+          Соц сети
+        </a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 YS Studio
+  </footer>
+
+</body>
+</html>
