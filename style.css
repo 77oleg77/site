@@ -1,3 +1,7 @@
+/* ============================================
+   ОБЩИЕ НАСТРОЙКИ
+   ============================================ */
+
 * {
   margin: 0;
   padding: 0;
@@ -5,180 +9,218 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Georgia', serif;
   min-height: 100vh;
-  color: #1a1a2e;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
   overflow-x: hidden;
 }
 
-/* Background */
-.bg-image {
-  position: fixed;
+/* ============================================
+   HERO — главный блок
+   ============================================ */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px 20px 60px;
+  overflow: hidden;
+}
+
+/* Фоновое изображение */
+.hero-bg {
+  position: absolute;
   inset: 0;
-  background: url('img/fon.png') center center / cover no-repeat;
   z-index: 0;
 }
 
-.bg-overlay {
-  position: fixed;
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Тёмный оверлей для читаемости текста */
+.hero-bg::after {
+  content: '';
+  position: absolute;
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(255, 220, 140, 0.15) 0%,
-    rgba(180, 140, 80, 0.10) 50%,
-    rgba(100, 80, 40, 0.25) 100%
+    rgba(10, 20, 50, 0.15) 0%,
+    rgba(10, 20, 50, 0.05) 40%,
+    rgba(10, 20, 50, 0.35) 100%
   );
-  z-index: 1;
 }
 
-/* Layout */
-.container {
+/* ============================================
+   ЛОГОТИП
+   ============================================ */
+
+.logo {
   position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 1200px;
-  padding: 40px 24px 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
+  z-index: 1;
+  margin-bottom: 20px;
 }
 
-/* Hero */
-.hero {
+.logo img {
+  height: 60px;
+  width: auto;
+}
+
+/* ============================================
+   ЗАГОЛОВОК
+   ============================================ */
+
+.hero-content {
+  position: relative;
+  z-index: 1;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
+  margin-bottom: 40px;
 }
 
-.lotus-icon {
-  width: 54px;
-  height: 54px;
-  object-fit: contain;
-  margin-bottom: 4px;
-}
-
-.hero h1 {
+.main-title {
   font-size: clamp(28px, 5vw, 58px);
-  font-weight: 900;
-  letter-spacing: 2px;
-  color: #1c1a14;
-  text-shadow: 0 2px 12px rgba(255,220,120,0.3);
-  line-height: 1.2;
-}
-
-.divider-diamond {
-  font-size: 18px;
-  color: #c9a45c;
-  margin: 4px 0;
+  font-weight: 700;
+  color: #1a2a4a;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  text-shadow: 0 2px 12px rgba(255, 255, 255, 0.6);
+  margin-bottom: 18px;
 }
 
 .subtitle {
-  font-size: clamp(15px, 2vw, 20px);
-  color: #2a2210;
-  opacity: 0.85;
-  line-height: 1.7;
+  font-size: clamp(14px, 2vw, 20px);
+  color: #2a3a5a;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 8px rgba(255, 255, 255, 0.7);
 }
 
-/* Cards row */
+/* ============================================
+   КАРТОЧКИ
+   ============================================ */
+
 .cards {
+  position: relative;
+  z-index: 1;
   display: flex;
   gap: 20px;
   justify-content: center;
-  flex-wrap: wrap;
+  align-items: stretch;
   width: 100%;
+  max-width: 1100px;
 }
 
 .card {
-  flex: 1 1 280px;
-  max-width: 340px;
-  background: rgba(255, 248, 230, 0.55);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(201, 164, 92, 0.3);
-  border-radius: 24px;
-  padding: 36px 28px 32px;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  padding: 30px 24px;
+  flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 14px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  gap: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card-icon {
-  width: 58px;
-  height: 58px;
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Иконка карточки */
+.card-icon img {
+  width: 60px;
+  height: 60px;
   object-fit: contain;
 }
 
-.card h3 {
-  font-size: 15px;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  color: #1c1a14;
-  line-height: 1.5;
+/* Вопрос внутри карточки */
+.card-question {
+  font-size: clamp(13px, 1.6vw, 17px);
+  font-weight: 700;
+  color: #1a2a4a;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
 }
 
-.card-divider {
-  color: #c9a45c;
-  font-size: 14px;
-}
-
-/* Gold button */
-.btn-gold {
+/* Кнопка-ссылка */
+.card-btn {
   display: inline-block;
+  background: linear-gradient(135deg, #d4a94e, #c8921a);
+  color: #fff;
   text-decoration: none;
-  background: linear-gradient(135deg, #e8c97a, #c9a45c);
-  color: #2a1a00;
-  font-weight: 800;
-  font-size: 13px;
-  letter-spacing: 1px;
-  padding: 14px 22px;
-  border-radius: 14px;
-  line-height: 1.5;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  box-shadow: 0 4px 18px rgba(201, 164, 92, 0.4);
+  font-size: clamp(11px, 1.2vw, 14px);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  padding: 12px 20px;
+  border-radius: 10px;
   width: 100%;
+  transition: background 0.25s ease, transform 0.2s ease;
 }
 
-.btn-gold:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 26px rgba(201, 164, 92, 0.55);
+.card-btn:hover {
+  background: linear-gradient(135deg, #e0ba6a, #d4a94e);
+  transform: scale(1.02);
 }
 
+/* Описание под кнопкой */
 .card-desc {
-  font-size: 13px;
-  color: #3a2e10;
-  opacity: 0.8;
-  line-height: 1.6;
+  font-size: clamp(11px, 1.1vw, 14px);
+  color: #3a4a6a;
+  line-height: 1.5;
 }
 
-/* Footer */
-footer {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  font-size: 13px;
-  color: #3a2e10;
-  opacity: 0.5;
-  padding: 16px;
-}
+/* ============================================
+   АДАПТИВ — планшет (до 768px)
+   ============================================ */
 
-/* Responsive */
-@media (max-width: 700px) {
+@media (max-width: 768px) {
+  .hero {
+    padding: 30px 16px 50px;
+  }
+
   .cards {
     flex-direction: column;
     align-items: center;
+    gap: 16px;
   }
+
   .card {
-    max-width: 100%;
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .main-title {
+    font-size: clamp(24px, 7vw, 36px);
+  }
+}
+
+/* ============================================
+   АДАПТИВ — телефон (до 480px)
+   ============================================ */
+
+@media (max-width: 480px) {
+  .logo img {
+    height: 45px;
+  }
+
+  .card {
+    padding: 22px 18px;
+  }
+
+  .card-icon img {
+    width: 48px;
+    height: 48px;
   }
 }
